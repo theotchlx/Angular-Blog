@@ -1,0 +1,14 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-sm bg-white shadow-md rounded-lg p-6">
+        <div class="mb-4">
+            <input type="text" [(ngModel)]="emailAddress" placeholder="Email Address" class="w-full px-3 py-2 mb-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300" />
+            <input type="password" [(ngModel)]="password" placeholder="Password" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300" />
+        </div>
+        <div class="flex justify-end">
+            <button type="button" class="btn btn-sm btn-outline-success m-1" [disabled]="emailAddress=='' || password==''" (click)="login()" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed">Login</button>
+        </div>
+        <div *ngIf="displayErrorMessage" class="mt-4 p-2 bg-red-500 text-white text-center rounded">
+            An error occurred during login. Please try again.
+        </div>
+    </div>
+</div>
