@@ -1,0 +1,16 @@
+<header class="bg-gray-200 p-4 shadow-md">
+  <div class="flex justify-between items-center">
+    <div>
+      <a *ngIf="!isLoggedIn" class="logoLink text-blue-500 text-lg font-semibold" routerLink="/" routerLinkActive="active">Login</a>
+      <a *ngIf="isLoggedIn" class="logoLink text-blue-500 text-lg font-semibold" routerLink="/list" routerLinkActive="active">See blog</a>
+    </div>
+    <div class="session-container flex space-x-4">
+      <a *ngIf="isLoggedIn" class="headerLink text-blue-500 text-lg font-semibold" routerLink="/logout" routerLinkActive="active">Logout</a>
+      <a *ngIf="!isLoggedIn" class="headerLink text-blue-500 text-lg font-semibold" routerLink="/" routerLinkActive="active">Login</a>
+      <a *ngIf="!isLoggedIn" class="headerLink text-blue-500 text-lg font-semibold" routerLink="/register" routerLinkActive="active">Register</a>
+    </div>  <!-- or use @If -->
+  </div>
+</header>
+<div class="container mx-auto p-4">
+  <router-outlet></router-outlet>
+</div>
