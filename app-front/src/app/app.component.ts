@@ -2,7 +2,6 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './list/list.component';
 import { AuthenticationService } from './shared/services/authentification/authentication.service';
 import { Subscription } from 'rxjs';
 import { UserModel } from './interfaces/user-model';
