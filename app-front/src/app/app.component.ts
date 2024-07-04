@@ -2,7 +2,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthenticationService } from './shared/services/authentification/authentication.service';
+import { AuthenticationService } from './shared/services/authentication.service';
 import { Subscription } from 'rxjs';
 import { UserModel } from './interfaces/user-model';
 
@@ -25,15 +25,15 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     //If page reloades, get status
     this.authService.updateUserSubject();
-    this.loggedInStatusSub = this.authService.user$.subscribe((res: UserModel | null) => {
-      if(res === null) {
-        this.isLoggedIn = false;
-      } else if(localStorage.getItem('pocketbase_auth') !== null) {
-          this.isLoggedIn = true;
-        } else {
-          this.isLoggedIn = false;
-        }
-    });
+    // this.loggedInStatusSub = this.authService.user$.subscribe((res: UserModel | null) => {
+    //   if(res === null) {
+    //     this.isLoggedIn = false;
+    //   } else if(localStorage.getItem('pocketbase_auth') !== null) {
+    //       this.isLoggedIn = true;
+    //     } else {
+    //       this.isLoggedIn = false;
+    //     }
+    // });
   }
 
   ngOnDestroy(): void {

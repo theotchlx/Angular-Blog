@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthenticationService } from '../../shared/services/authentification/authentication.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,10 +23,14 @@ export class LoginComponent {
     this.authService.login(this.emailAddress, this.password)
     .then((res: boolean) => {
       if (res) {
-        this.router.navigateByUrl('/tasks');
+        this.router.navigateByUrl('/blogs');
       } else {
         this.displayErrorMessage = true;
+        //Handle by toast here
       }
-    })
+    }).catch((err) => {
+      console.log(err);
+      //Handle by toast here
+    });
   }
 }

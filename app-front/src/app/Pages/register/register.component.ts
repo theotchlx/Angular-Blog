@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthenticationService } from '../../shared/services/authentification/authentication.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Router } from '@angular/router';
 import { RegisterModel } from '../../interfaces/register-model';
 import { RecordModel } from 'pocketbase';
@@ -41,11 +41,13 @@ export class RegisterComponent implements OnInit { // Implement OnInit here
     .then((res: RecordModel) => {
       if(res['token'] != '') {
         this.router.navigateByUrl('/blogs');
-      } // else would be to display some error
+      } else {
+        //Handle by toast here
+      }
     })
     .catch((err) => {
       console.log(err);
-      // Don't do this. handle it correctly
+      //Handle by toast here
     });
   }
 }

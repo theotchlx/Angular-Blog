@@ -1,7 +1,7 @@
 <header class="bg-gray-200 p-4 shadow-md">
   <div class="flex justify-between items-center">
     <div>
-      <a *ngIf="!isLoggedIn" class="logoLink text-blue-500 text-lg font-semibold" routerLink="/" routerLinkActive="active">Login</a>
+      <a *ngIf="!isLoggedIn" class="logoLink text-blue-500 text-lg font-semibold" routerLink="/logout" routerLinkActive="active">Logout</a>
       <a *ngIf="isLoggedIn" class="logoLink text-blue-500 text-lg font-semibold" routerLink="/list" routerLinkActive="active">See blog</a>
     </div>
     <div class="session-container flex space-x-4">
