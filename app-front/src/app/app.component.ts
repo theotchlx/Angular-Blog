@@ -1,10 +1,8 @@
 
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthenticationService } from './shared/services/authentication.service';
-import { Subscription } from 'rxjs';
-import { UserModel } from './interfaces/user-model';
 
 @Component({
   selector: 'app-root',
@@ -13,27 +11,14 @@ import { UserModel } from './interfaces/user-model';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
 
   title = 'Forum Polytech';
 
   authService: AuthenticationService = inject(AuthenticationService);
 
   ngOnInit() {
-    //If page reloades, get status
-    this.authService.updateUserSubject();
-    // this.loggedInStatusSub = this.authService.user$.subscribe((res: UserModel | null) => {
-    //   if(res === null) {
-    //     this.isLoggedIn = false;
-    //   } else if(localStorage.getItem('pocketbase_auth') !== null) {
-    //       this.isLoggedIn = true;
-    //     } else {
-    //       this.isLoggedIn = false;
-    //     }
-    // });
-  }
-
-  ngOnDestroy(): void {
+    // If page reloades, update user status on page load.
     this.authService.updateUserSubject();
   }
 

@@ -15,6 +15,7 @@ export const routes: Routes = [  // Routes follow documentation best practices.
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent},
   { path: 'blogs/:blogId/articles/:articleId/edit', component: EditArticleComponent, canActivate: [AuthenticationGuard]},
+  { path: 'blogs/:blogId/articles/add', component: ArticlesComponent, canActivate: [AuthenticationGuard]},
   { path: 'blogs/:blogId/articles', component: ArticlesComponent, canActivate: [AuthenticationGuard]},
   { path: 'blogs/:blogId/edit', component: EditBlogComponent, canActivate: [AuthenticationGuard]},
   { path: 'blogs/add', component: BlogsComponent, canActivate: [AuthenticationGuard]},
