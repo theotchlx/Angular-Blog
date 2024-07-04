@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlogService } from '../../shared/services/blogs.service';
 import { Router } from '@angular/router';
-import { Blog } from '../../interfaces/blog-model';
+import { BlogModel } from '../../interfaces/blog-model';
 
 @Component({
   selector: 'app-blogs',
@@ -25,18 +25,18 @@ export class BlogsComponent implements OnInit {
   }
 
   addBlog(): void {
-    this.router.navigate(['/add-blog']); // Assuming you have a route for adding a blog
+    this.router.navigate(['/blogs/add']);
   }
 
-  onBlogClick(blog: Blog): void {
-    this.router.navigate(['/blog', blog.id]); // Assuming you have a route for viewing a blog
+  onBlogClick(blog: BlogModel): void {
+    this.router.navigate(['/blogs', blog.id]);
   }
 
-  editBlog(blog: Blog): void {
-    this.router.navigate([`/blog${blog.id}/edit`]); // Assuming you have a route for editing a blog
+  editBlog(blog: BlogModel): void {
+    this.router.navigate([`/blogs/${blog.id}/edit`]);
   }
 
-  deleteBlog(blog: Blog): void {
+  deleteBlog(blog: BlogModel): void {
     this.blogService.deleteBlog(blog.id)
       .then(() => {
         this.fetchBlogs();

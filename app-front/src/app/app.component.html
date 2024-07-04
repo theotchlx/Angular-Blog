@@ -1,14 +1,13 @@
 <header class="bg-gray-200 p-4 shadow-md">
   <div class="flex justify-between items-center">
-    <div>
-      <a *ngIf="!isLoggedIn" class="logoLink text-blue-500 text-lg font-semibold" routerLink="/logout" routerLinkActive="active">Logout</a>
-      <a *ngIf="isLoggedIn" class="logoLink text-blue-500 text-lg font-semibold" routerLink="/list" routerLinkActive="active">See blog</a>
+    <div class="flex space-x-4">
+      <a class="logoLink text-blue-500 text-lg font-semibold bg-gray-300 py-2 px-4 shadow-md" routerLink="/logout" routerLinkActive="active">Logout</a>
+      <a class="logoLink text-blue-500 text-lg font-semibold bg-gray-300 py-2 px-4 shadow-md" routerLink="/blogs" routerLinkActive="active">Blogs</a>
     </div>
-    <div class="session-container flex space-x-4">
-      <a *ngIf="isLoggedIn" class="headerLink text-blue-500 text-lg font-semibold" routerLink="/logout" routerLinkActive="active">Logout</a>
-      <a *ngIf="!isLoggedIn" class="headerLink text-blue-500 text-lg font-semibold" routerLink="/" routerLinkActive="active">Login</a>
-      <a *ngIf="!isLoggedIn" class="headerLink text-blue-500 text-lg font-semibold" routerLink="/register" routerLinkActive="active">Register</a>
-    </div>  <!-- or use @If -->
+    <div class="flex space-x-4">
+      <a class="headerLink text-blue-500 text-lg font-semibold bg-gray-300 py-2 px-4 shadow-md" routerLink="/" routerLinkActive="active">Login</a>  <!-- login or see blog, if already authenticated. -->
+      <a class="headerLink text-blue-500 text-lg font-semibold bg-gray-300 py-2 px-4 shadow-md" routerLink="/register" routerLinkActive="active">Register</a>
+    </div>
   </div>
 </header>
 <div class="container mx-auto p-4">

@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthenticationService } from '../../shared/services/authentication.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterModel } from '../../interfaces/register-model';
 import { RecordModel } from 'pocketbase';
+import { RegisterModel } from '../../interfaces/register-model';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit { // Implement OnInit here
 
   fg!: FormGroup;
   
-  ngOnInit(): void { // Implement ngOnInit here
+  ngOnInit(): void {
     this.fg = this.fb.group({
       email: ['', [Validators.required, Validators.email] ], 
       password: ['', [Validators.required, Validators.minLength(8)] ], 

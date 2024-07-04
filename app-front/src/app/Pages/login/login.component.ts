@@ -23,7 +23,7 @@ export class LoginComponent {
     this.authService.login(this.emailAddress, this.password)
     .then((res: boolean) => {
       if (res) {
-        this.router.navigateByUrl('/blogs');
+        this.router.navigateByUrl('/blogs');  // Redirect to blogs directly, if user is (already) authenticated.
       } else {
         this.displayErrorMessage = true;
         //Handle by toast here

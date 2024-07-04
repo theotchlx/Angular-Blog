@@ -1,4 +1,4 @@
-export interface Article {  // Reflects the 'articles' table/collection in the backend.
+export interface ArticleModel {  // Reflects the 'articles' table/collection in the backend.
     id: string;
     blogId: string;
     authorId: string;

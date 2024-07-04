@@ -19,9 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   authService: AuthenticationService = inject(AuthenticationService);
 
-  isLoggedIn: boolean = false;
-  loggedInStatusSub?: Subscription;
-
   ngOnInit() {
     //If page reloades, get status
     this.authService.updateUserSubject();
@@ -37,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.loggedInStatusSub?.unsubscribe();
+    this.authService.updateUserSubject();
   }
 
 }

@@ -6,9 +6,12 @@
     </button>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <button *ngFor="let blog of blogs; let i=index" class="bg-blue-100 p-6 text-left rounded-lg shadow-md" (click)="onBlogClick(blog)">
-      <h2 class="text-xl font-bold">{{ blog.title }}</h2>
-      <p class="mt-2 text-gray-600">{{ blog.description }}</p>
-    </button>
+    <div *ngFor="let blog of blogs; let i=index" class="bg-blue-100 p-6 text-left rounded-lg shadow-md">
+      <h2 class="text-xl font-bold cursor-pointer" (click)="onBlogClick(blog)">{{ blog.title }}</h2>
+      <p class="mt-2 text-gray-600 cursor-pointer" (click)="onBlogClick(blog)">{{ blog.description }}</p>
+      <button class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded" (click)="editBlog(blog)">
+        Edit
+      </button>
+    </div>
   </div>
 </div>

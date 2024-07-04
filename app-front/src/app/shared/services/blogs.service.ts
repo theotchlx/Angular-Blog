@@ -1,33 +1,36 @@
 import { Injectable } from '@angular/core';
 import PocketBase from 'pocketbase';
 import { environment } from '../../../environments/environment';
+import { BlogModel } from '../../interfaces/blog-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
   private apiUrl = `${environment.apiUrl}/blogs`;
-  private pb: PocketBase;
+  private pocket: PocketBase;
 
   constructor() {
-    this.pb = new PocketBase(environment.apiUrl);
+    this.pocket = new PocketBase(environment.apiUrl);
   }
 
   async getBlogs(): Promise<any[]> {
-    const result = await this.pb.collection('blogs').getFullList();
-    return result;
+    return await this.pocket.collection('blogs').getFullList();
   }
 
-  async addBlog(blog: any): Promise<any> {
-    const result = await this.pb.collection('blogs').create(blog);
-    return result;
+  async getBlogById(id: string): Promise<any> {
+    return await this.pocket.collection('blogs').getOne(id);
   }
 
-  editBlog(blog: any): Promise<any> {
-    return this.pb.collection('blogs').update(blog.id, blog);
+  async addBlog(blog: BlogModel): Promise<any> {
+    return await this.pocket.collection('blogs').create(blog);
   }
 
-  deleteBlog(id: string): Promise<any> {
-    return this.pb.collection('blogs').delete(id);
+  async editBlog(blog: BlogModel): Promise<any> {
+    return await this.pocket.collection('blogs').update(blog.id, blog);
+  }
+
+  async deleteBlog(id: string): Promise<any> {
+    return await this.pocket.collection('blogs').delete(id);
   }
 }
