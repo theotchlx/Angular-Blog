@@ -23,7 +23,8 @@ export class EditBlogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.blogId = this.route.snapshot.paramMap.get('id')!;
+    this.blogId = this.route.snapshot.paramMap.get('blogId')!;
+
     this.initializeForm();
     this.loadBlog();
   }

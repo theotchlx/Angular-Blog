@@ -7,7 +7,6 @@ import { BlogModel } from '../../interfaces/blog-model';
   providedIn: 'root'
 })
 export class BlogService {
-  private apiUrl = `${environment.apiUrl}/blogs`;
   private pocket: PocketBase;
 
   constructor() {

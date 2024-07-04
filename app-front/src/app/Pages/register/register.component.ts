@@ -42,12 +42,12 @@ export class RegisterComponent implements OnInit { // Implement OnInit here
       if(res['token'] != '') {
         this.router.navigateByUrl('/blogs');
       } else {
-        //Handle by toast here
+        alert('Failed to register');
       }
     })
     .catch((err) => {
       console.log(err);
-      //Handle by toast here
+      alert('Failed to register');
     });
   }
 }

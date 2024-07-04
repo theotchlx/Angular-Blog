@@ -55,8 +55,4 @@ export class AuthenticationService {
     // Method to get if the user is connected or not. Used by the authentication guard (for example).
     return this.pocket.authStore.isValid;
   }
-
-  // public getUser() {  // Method to get the current user data
-  //   return this.pocket.authStore.model;
-  // }
 }

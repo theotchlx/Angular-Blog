@@ -26,11 +26,11 @@ export class LoginComponent {
         this.router.navigateByUrl('/blogs');  // Redirect to blogs directly, if user is (already) authenticated.
       } else {
         this.displayErrorMessage = true;
-        //Handle by toast here
+        alert('Failed to login');
       }
     }).catch((err) => {
       console.log(err);
-      //Handle by toast here
+      alert('Failed to login');
     });
   }
 }
