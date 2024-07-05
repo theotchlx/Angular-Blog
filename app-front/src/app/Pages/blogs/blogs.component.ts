@@ -14,9 +14,10 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class BlogsComponent implements OnInit {
   blogs: any[] = [];
+  paginatedBlogs: BlogModel[] = [];
   currentPage: number = 1;
   pageSize: number = 5; // Number of blogs per page
-  totalPages!: number;
+  totalPages: number = 0;
 
   currentUserId: string | null = null;
 
@@ -29,20 +30,20 @@ export class BlogsComponent implements OnInit {
     this.setCurrentUser();
   }
 
-  updatePaginatedBlogs() {
+  updatePaginatedBlogs(): void {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.blogs = this.blogs.slice(startIndex, endIndex);
+    this.paginatedBlogs = this.blogs.slice(startIndex, endIndex);
   }
 
-  prevPage() {
+  prevPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
       this.updatePaginatedBlogs();
     }
   }
 
-  nextPage() {
+  nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
       this.updatePaginatedBlogs();
@@ -56,6 +57,8 @@ export class BlogsComponent implements OnInit {
 
   async fetchBlogs(): Promise<void> {
     this.blogs = await this.blogService.getBlogs();
+    this.totalPages = Math.ceil(this.blogs.length / this.pageSize);
+    this.updatePaginatedBlogs();
   }
 
   addBlog(): void {
@@ -76,7 +79,7 @@ export class BlogsComponent implements OnInit {
   onBlogClick(blog: BlogModel): void {
     this.router.navigate([`/blogs/${blog.id}/articles`]);
   }
-
+  
   isOwner(blog: BlogModel): boolean {
     return this.currentUserId === blog.ownerId;
   }
