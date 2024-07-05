@@ -34,6 +34,14 @@ SSR/SSG: No
 Everyone can see every blog and article, but only the owners and authors can modify or delete them.
 
 
+### Cloning the repo
+
+Execute the following command:
+```
+you@pc:~$
+> git clone https://github.com/theotchlx/Angular-Blog.git
+```
+
 ### Launching the backend
 
 Execute the following commands:
@@ -60,3 +68,6 @@ you@pc:~/Angular-Blog$
 you@pc:~/Angular-Blog$
 > ng serve
 ```
+
+
+You can now connect to `localhost:4200` to see the blog on your browser! Enjoy.
