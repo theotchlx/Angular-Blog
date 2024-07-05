@@ -14,20 +14,22 @@ SSR/SSG: No
     - `users`, `blogs` and `articles`.
     - `blogs` is linked to `users` by `ownerId`
     - `articles` is linked to `users` by `authorId` and to `blogs` by `blogId`.
-- Authentication
-  - Registering a user (bonus)
-  - Logging in
-  - Logging out
-- Blogs
-  - Blogs page with pagination
-  - Creating blogs
-  - Editing blogs if you are the owner
-  - Deleting blogs if you are the owner
-- Articles
-  - Articles page with pagination
-  - Creating articles
-  - Editing articles if you are the author
-  - Deleting articles if you are the author
+- Frontend
+  - Style : TailwindCSS
+  - Authentication
+    - Registering a user (bonus)
+    - Logging in
+    - Logging out
+  - Blogs
+    - Blogs page with pagination
+    - Creating blogs
+    - Editing blogs if you are the owner
+    - Deleting blogs if you are the owner
+  - Articles
+    - Articles page with pagination
+    - Creating articles
+    - Editing articles if you are the author
+    - Deleting articles if you are the author
 
 Everyone can see every blog and article, but only the owners and authors can modify or delete them.
 
