@@ -29,7 +29,6 @@ export class LoginComponent {
         alert('Failed to login');
       }
     }).catch((err) => {
-      console.log(err);
       alert('Failed to login');
     });
   }

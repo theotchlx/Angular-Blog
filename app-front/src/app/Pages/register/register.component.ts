@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit { // Implement OnInit here
   fg!: FormGroup;
   
   ngOnInit(): void {
+    this.authService.logout();  // Logout if a registered user is already logged in and tries to create a new account.
     this.fg = this.fb.group({
       email: ['', [Validators.required, Validators.email] ], 
       password: ['', [Validators.required, Validators.minLength(8)] ], 
@@ -46,7 +47,6 @@ export class RegisterComponent implements OnInit { // Implement OnInit here
       }
     })
     .catch((err) => {
-      console.log(err);
       alert('Failed to register');
     });
   }
