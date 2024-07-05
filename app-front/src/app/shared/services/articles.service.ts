@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import PocketBase from 'pocketbase';
 import { environment } from '../../../environments/environment';
+import { ArticleModel } from '../../interfaces/article-model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +25,12 @@ export class ArticleService {
     return result;
   }
 
-  async addArticle(article: any): Promise<any> {
+  async addArticle(article: ArticleModel): Promise<any> {
     const result = await this.pocket.collection('articles').create(article);
     return result;
   }
 
-  async editArticle(article: any): Promise<any> {
+  async editArticle(article: ArticleModel): Promise<any> {
     const result = await this.pocket.collection('articles').update(article.id, article);
     return result;
   }

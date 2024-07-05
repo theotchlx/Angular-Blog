@@ -5,18 +5,64 @@
       Add Blog
     </button>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div *ngFor="let blog of blogs; let i=index" class="bg-blue-100 p-6 text-left rounded-lg shadow-md" (click)="onBlogClick(blog)">
-      <h2 class="text-xl font-bold cursor-pointer">{{ blog.title }}</h2>
-      <p class="mt-2 text-gray-600 cursor-pointer">{{ blog.description }}</p>
-      <div *ngIf="isOwner(blog)" class="mt-4 flex space-x-2">
-        <button class="bg-yellow-500 text-white px-4 py-2 rounded" (click)="editBlog(blog)">
-          Edit
-        </button>
-        <button class="bg-red-500 text-white px-4 py-2 rounded" (click)="deleteBlog(blog)">
-          Delete
-        </button>
-      </div>
+  
+  <!-- Blog Table -->
+  <table class="min-w-full bg-white">
+    <thead>
+      <tr>
+        <th class="py-2">Title</th>
+        <th class="py-2">Description</th>
+        <th class="py-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let blog of blogs; let i=index" class="bg-blue-100 text-left rounded-lg shadow-md">
+        <td class="py-2">{{ blog.title }}</td>
+        <td class="py-2">{{ blog.description }}</td>
+        <td class="py-2">
+          <button class="bg-yellow-500 text-white px-4 py-2 rounded mx-2" (click)="editBlog(blog)">
+            Edit
+          </button>
+          <button class="bg-red-500 text-white px-4 py-2 rounded" (click)="deleteBlog(blog)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination Controls -->
+  <div class="flex justify-center mt-4">
+    <button class="bg-gray-500 text-white px-4 py-2 rounded" (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <span class="mx-2">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="bg-gray-500 text-white px-4 py-2 rounded" (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+
+
+<div class="flex justify-between items-center mb-6">
+  <h1 class="text-3xl font-bold">Blogs</h1>
+  <button class="bg-blue-500 text-white px-4 py-2 rounded" (click)="addBlog()">
+    Add Blog
+  </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div *ngFor="let blog of blogs; let i=index" class="bg-blue-100 p-6 text-left rounded-lg shadow-md" (click)="onBlogClick(blog)">
+    <h2 class="text-xl font-bold cursor-pointer">{{ blog.title }}</h2>
+    <p class="mt-2 text-gray-600 cursor-pointer">{{ blog.description }}</p>
+    <div *ngIf="isOwner(blog)" class="mt-4 flex space-x-2">
+      <button class="bg-yellow-500 text-white px-4 py-2 rounded" (click)="editBlog(blog)">
+        Edit
+      </button>
+      <button class="bg-red-500 text-white px-4 py-2 rounded" (click)="deleteBlog(blog)">
+        Delete
+      </button>
     </div>
   </div>
+</div>
+
+
 </div>

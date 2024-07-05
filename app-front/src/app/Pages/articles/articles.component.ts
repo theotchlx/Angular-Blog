@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleModel } from '../../interfaces/article-model';
 import { ArticleService } from '../../shared/services/articles.service';
 import { UserService } from '../../shared/services/user.service';
@@ -17,17 +17,18 @@ export class ArticlesComponent implements OnInit {
   blogId: string | null = null;
   currentUserId: string | null = null;
 
-  constructor(private articleService: ArticleService, private userService: UserService, private router: Router) {}
+  constructor(private articleService: ArticleService, private userService: UserService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe(params => {
-      this.blogId = params.get('blogId');
-      if (this.blogId) {
-        this.fetchArticles();
-      } else {
-        this.router.navigate(['/blogs']);
-      }
-    });
+    this.blogId = this.route.snapshot.paramMap.get('blogId')!;
+    // this.router.paramMap.subscribe(params => {
+    //   this.blogId = params.get('blogId');
+    //   if (this.blogId) {
+    //     this.fetchArticles();
+    //   } else {
+    //     this.router.navigate(['/blogs']);
+    //   }
+    // });
     this.fetchArticles();
     this.setCurrentUser();
   }

@@ -8,7 +8,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div *ngFor="let article of articles; let i=index" class="bg-blue-100 p-6 text-left rounded-lg shadow-md">
       <h2 class="text-xl font-bold cursor-pointer">{{ article.title }}</h2>
-      <p class="mt-2 text-gray-600 cursor-pointer">{{ article.description }}</p>
+      <p class="mt-2 text-gray-600 cursor-pointer">{{ article.content }}</p>
       <div *ngIf="isAuthor(article)" class="mt-4 flex space-x-2">
         <button class="bg-yellow-500 text-white px-4 py-2 rounded" (click)="editArticle(article)">
           Edit
