@@ -51,6 +51,10 @@ you@pc:~/Angular-Blog$
 Execute the following commands:
 ```
 you@pc:~/Angular-Blog$
+> pnpm install
+# You can use npm install if you don't have pnpm.
+
+you@pc:~/Angular-Blog$
 > cd app-front
 
 you@pc:~/Angular-Blog$
